@@ -1,5 +1,6 @@
 using appweb.Components;
 using appweb.Configs;
+using appweb.DAO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<Conexao>();
+builder.Services.AddScoped<ProcessoDAO>();
 
 var app = builder.Build();
 
@@ -24,3 +26,4 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
+
